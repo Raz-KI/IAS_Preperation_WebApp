@@ -1,0 +1,376 @@
+/* General Styles */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    /* Gradient background for the body */
+    color: #2C2C2C;
+}
+
+
+/* Header and Navbar */
+
+header {
+    /* Gradient for the header */
+    padding: 10px;
+    color: white;
+    background-color: #4B0082;
+    ;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 40px;
+}
+
+.logo h1 {
+    font-size: 1.5rem;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 2rem;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.auth-buttons {
+    display: inline;
+}
+
+.auth-buttons a {
+    color: white;
+    background-color: #FFD700;
+    /* Golden Yellow for buttons */
+    text-decoration: none;
+    padding: 9px;
+    border-radius: 4px;
+    margin-left: 1rem;
+    font-size: 17px;
+}
+
+.auth-buttons .login-btn {
+    background-color: #4B0082;
+    /* Royal Purple for the login button */
+    height: 37px;
+    width: 66px;
+}
+
+.auth-buttons .signup-btn {
+    background-color: #FFD700;
+    /* Golden Yellow for the signup button */
+    height: 37px;
+    width: 66px;
+}
+
+
+/* Hero Section (Home Page) */
+
+.hero-section {
+    text-align: center;
+    padding: 4rem 2rem;
+    /* Soft Gray to Royal Purple gradient */
+}
+
+.hero-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #4B0082;
+}
+
+.hero-section p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: #2C2C2C;
+}
+
+.start-interview-btn {
+    background-color: #FFD700;
+    /* Golden Yellow for button */
+    color: #2C2C2C;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    font-size: 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.start-interview-btn:hover {
+    background-color: #FFC107;
+    /* Darker yellow on hover */
+}
+
+
+/* About Section (Home Page) */
+
+.about-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem 2rem;
+    /* Royal Purple to Soft Gray gradient */
+}
+
+.about-content {
+    display: flex;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.text-column {
+    flex: 1;
+    padding-right: 2rem;
+}
+
+.text-column h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #4B0082;
+}
+
+.text-column p {
+    margin-bottom: 1.5rem;
+    color: #2C2C2C;
+}
+
+.image-column {
+    flex: 1;
+    text-align: center;
+}
+
+.image-column img {
+    max-width: 100%;
+    border-radius: 8px;
+}
+
+
+/* Footer Section */
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    /* Gradient for footer */
+    color: white;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+
+/* Login Page Styles */
+
+.body2 {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #4B0082, #F0F0F0);
+    /* Gradient background for login page */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.login-box {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    text-align: center;
+}
+
+.login-box h2 {
+    margin-bottom: 1.5rem;
+    color: #4B0082;
+}
+
+.input-group {
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    font-size: 0.9rem;
+    color: #2C2C2C;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 0.5rem;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #4B0082;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 1rem;
+}
+
+.login-btn:hover {
+    background-color: #371D5A;
+}
+
+.signup-link {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+.signup-link a {
+    color: #4B0082;
+    text-decoration: none;
+}
+
+
+/* Sign-Up Page Styles */
+
+.body3 {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #4B0082, #F0F0F0);
+    /* Gradient background for sign-up page */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.signup-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.signup-box {
+    width: 50%;
+    padding: 2rem;
+    border: 3px solid #4B0082;
+    border-radius: 20px;
+}
+
+.signup-box h2 {
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    color: #4B0082;
+}
+
+.input-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    font-size: 1rem;
+    color: #2C2C2C;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 0.5rem;
+    font-size: 1rem;
+}
+
+.signup-btn {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #FFD700;
+    color: #2C2C2C;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 1.5rem;
+    transition: background-color 0.3s ease;
+}
+
+.signup-btn:hover {
+    background-color: #FFC107;
+}
+
+.signup-image {
+    width: 45%;
+    text-align: center;
+}
+
+.signup-image img {
+    max-width: 100%;
+    margin-left: 2rem;
+}
+
+
+/* Responsive Adjustments */
+
+@media (max-width: 768px) {
+    .signup-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .signup-box {
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+    .signup-image {
+        width: 80%;
+        margin-left: 0;
+    }
+
+}
+
+.flash-messages {
+    margin: 20px 0;
+}
+
+.flash-message {
+    padding: 10px;
+    border-radius: 5px;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.flash-message.error {
+    background-color: #e74c3c;  /* Red for error */
+}
+
+.flash-message.success {
+    background-color: #2ecc71;  /* Green for success */
+}

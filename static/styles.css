@@ -1,0 +1,51 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  text-align: center;
+}
+
+.interview-container {
+  margin: 50px auto;
+  width: 400px;
+}
+
+#history-panel {
+  margin-bottom: 20px;
+  background-color: #f1f1f1;
+  padding: 10px;
+  border-radius: 5px;
+  height: 200px;
+  overflow-y: auto;
+  text-align: left;
+}
+
+#ai-question, #user-answer {
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+button {
+  padding: 10px 15px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+video {
+  margin-top: 20px;
+  width: 300px;
+  height: 200px;
+}
+
+
+.results-container {
+  margin: 50px auto;
+  width: 600px;
+  text-align: left;
+}

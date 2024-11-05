@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IAS Mock Interview</title>
+    <style>
+        /* Reset browser default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #e0e7ff; /* Subtle soft blue background */
+            color: #333;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        h1 {
+            color: #2a4365; /* Deep blue text */
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        #interview {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        #video-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        video {
+            border: 3px solid #2a4365;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 480px;
+        }
+
+        #question {
+            font-size: 1.2rem;
+            color: #2a4365;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        button {
+            background-color: #4c51bf; /* Indigo */
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+            max-width: 300px;
+            margin: 10px auto;
+            display: block;
+            text-align: center;
+        }
+
+        button:hover {
+            background-color: #3c366b;
+        }
+
+        button.hidden {
+            display: none;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            #interview {
+                padding: 20px;
+            }
+
+            button {
+                font-size: 0.9rem;
+                padding: 10px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <h1>IAS Interview Mock Preparation</h1>
+    <div id="interview">
+        <div id="video-container">
+            <video id="video" autoplay></video>
+        </div>
+        <div id="question">Click "Start Interview" to begin.</div>
+        <button id="startBtn">Start Interview</button>
+        <button id="answerBtn" class="hidden">Record Answer</button>
+    </div>
+
+    <script>
+        const video = document.getElementById('video');
+        const startBtn = document.getElementById('startBtn');
+        const answerBtn = document.getElementById('answerBtn');
+        const questionDiv = document.getElementById('question');
+
+        // Function to capture camera feed
+        function startCamera() {
+            navigator.mediaDevices.getUserMedia({ video: true, audio: false })
+                .then(stream => {
+                    video.srcObject = stream;
+                })
+                .catch(err => console.error('Error accessing camera:', err));
+        }
+
+        // Function to start the interview
+        startBtn.addEventListener('click', () => {
+            startCamera();
+            fetch('/start-interview') // Call Flask route to get the first question
+                .then(response => response.json())
+                .then(data => {
+                    questionDiv.textContent = data.question; // Display first AI question
+                    startBtn.classList.add('hidden');
+                    answerBtn.classList.remove('hidden');
+                });
+        });
+
+        // Function to record the answer
+        answerBtn.addEventListener('click', () => {
+            // Capture and send the user's voice
+            questionDiv.textContent = 'Recording...';
+            fetch('/record-answer', { method: 'POST' })
+                .then(response => response.json())
+                .then(data => {
+                    questionDiv.textContent = data.next_question;
+                });
+        });
+    </script>
+</body>
+</html>

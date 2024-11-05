@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IAS Interview</title>
+</head>
+<style>
+    /* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Raleway', sans-serif;
+}
+
+/* Body Styling */
+body {
+    background: linear-gradient(120deg, #8EC5FC, #E0C3FC);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+}
+
+/* Interview Container Styling */
+.interview-container {
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+}
+
+/* Title Styling */
+h2 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* History Panel Styling */
+#history-panel {
+    background: #f7f7f7;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: left;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+#history-panel h3 {
+    font-size: 20px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+#history {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* Video Feed Styling */
+#videoFeed {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* AI Question Styling */
+#ai-question {
+    font-size: 18px;
+    color: #444;
+    background: #ffe08c;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Button Styling */
+button {
+    background: linear-gradient(90deg, #ff6b6b, #ff9a6b);
+    border: none;
+    border-radius: 30px;
+    padding: 12px 25px;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin: 10px 5px;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: linear-gradient(90deg, #ff9a6b, #ff6b6b);
+    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+}
+
+button:focus {
+    outline: none;
+}
+
+/* User Answer Display */
+#user-answer {
+    background: #dff3e3;
+    border-radius: 10px;
+    padding: 15px;
+    color: #333;
+    font-size: 16px;
+    margin-top: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .interview-container {
+        padding: 20px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    button {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+
+    #ai-question, #user-answer {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    h2 {
+        font-size: 20px;
+    }
+
+    button {
+        padding: 8px 15px;
+        font-size: 12px;
+    }
+
+    #ai-question, #user-answer {
+        font-size: 14px;
+    }
+}
+
+</style>
+<body>
+    <div class="interview-container">
+        <h2>IAS Mock Interview</h2>
+
+        <!-- History Panel to show AI and User conversation -->
+        <div id="history-panel">
+            <h3>Conversation History</h3>
+            <div id="history"></div>
+        </div>
+
+        <!-- Video Feed -->
+        <video id="videoFeed" autoplay></video>
+
+        <!-- Current AI Question Display -->
+        <div id="ai-question">AI Question will appear here...</div>
+
+        <!-- Microphone Button -->
+        <button id="micButton" onclick="startMicrophone()">🎤 Start Answer</button>
+
+        <!-- Stop Interview Button -->
+        <button id="stopInterviewBtn">Stop Interview</button>
+
+        <!-- Area where user response will be displayed -->
+        <div id="user-answer">You said: </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='interview.js') }}"></script>
+</body>
+</html>

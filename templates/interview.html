@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IAS Interview</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Raleway', sans-serif;
+        }
+
+        /* Body Styling */
+        body {
+            background: linear-gradient(120deg, #8EC5FC, #E0C3FC);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: auto;
+            padding: 20px;
+        }
+
+        /* Interview Container */
+        .interview-container {
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 1200px;
+            height: 90vh;
+            gap: 20px; /* Adds space between the video section and history panel */
+        }
+
+        /* History Panel Styling */
+        #history-panel {
+            background: #f7f7f7;
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 35%; /* 2/5 width */
+            flex-basis: 35%;
+            text-align: left;
+            max-height: 100%;
+            overflow-y: auto;
+        }
+
+        #history-panel h3 {
+            font-size: 20px;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        #history {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        /* Content Section (Video + AI Question + Buttons) */
+        .content-section {
+            max-width: 65%; /* 3/5 width */
+            flex-basis: 65%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* Title Styling */
+        h2 {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* Video Feed Styling */
+        #videoFeed {
+            width: 100%;
+            height: 50%;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* AI Question Styling */
+        #ai-question {
+            font-size: 18px;
+            color: #444;
+            background: #ffe08c;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Button Styling */
+        .button-container {
+            display: flex;
+            justify-content: space-evenly;
+            margin-top: 20px;
+        }
+
+        button {
+            background: linear-gradient(90deg, #ff6b6b, #ff9a6b);
+            border: none;
+            border-radius: 30px;
+            padding: 12px 25px;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background: linear-gradient(90deg, #ff9a6b, #ff6b6b);
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+        }
+
+        button:focus {
+            outline: none;
+        }
+
+        /* User Answer Display */
+        #user-answer {
+            background: #dff3e3;
+            border-radius: 10px;
+            padding: 15px;
+            color: #333;
+            font-size: 16px;
+            margin-top: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            flex-grow: 1; /* Ensures the user answer section expands properly */
+            overflow-y: auto; /* Adds scroll for long responses */
+            max-height: 150px; /* Sets a limit to prevent overlap with buttons */
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .interview-container {
+                flex-direction: column;
+                padding: 20px;
+                height: auto;
+                gap: 0; /* Remove gap on smaller screens */
+            }
+
+            #history-panel {
+                max-width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .content-section {
+                max-width: 100%;
+            }
+
+            h2 {
+                font-size: 24px;
+            }
+
+            button {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+
+            #ai-question, #user-answer {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h2 {
+                font-size: 20px;
+            }
+
+            button {
+                padding: 8px 15px;
+                font-size: 12px;
+            }
+
+            #ai-question, #user-answer {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="interview-container">
+        <!-- Content Section (Video + AI Question + Buttons) -->
+        <div class="content-section">
+            <h2>IAS Mock Interview</h2>
+
+            <!-- Video Feed -->
+            <video id="videoFeed" autoplay></video>
+
+            <!-- Current AI Question Display -->
+            <div id="ai-question">AI Question will appear here...</div>
+
+            <!-- Area where user response will be displayed -->
+            <div id="user-answer">You said: </div>
+
+            <!-- Buttons -->
+            <div class="button-container">
+                <!-- Microphone Button -->
+                <button id="micButton" onclick="startMicrophone()">🎤 Start Answer</button>
+
+                <!-- Stop Interview Button -->
+                <button id="stopInterviewBtn">Stop Interview</button>
+            </div>
+        </div>
+
+        <!-- History Panel to show AI and User conversation -->
+        <div id="history-panel">
+            <h3>Conversation History</h3>
+            <div id="history"></div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='interview.js') }}"></script>
+</body>
+</html>

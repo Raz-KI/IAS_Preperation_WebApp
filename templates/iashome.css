@@ -1,0 +1,340 @@
+/* Import Google Fonts */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* General Styles */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color: #FFFFFF;
+    /* White background */
+    color: #000000;
+    /* Black text color for main content */
+    line-height: 1.6;
+}
+
+
+/* Header and Navbar */
+
+header {
+    background-color: #000000;
+    /* Black navbar */
+    padding: 10px 0;
+    color: #FFFFFF;
+    /* White text for navbar */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo h1 {
+    font-size: 1.5rem;
+    color: #FFFFFF;
+    /* White text for logo in navbar */
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 2rem;
+}
+
+.nav-links a {
+    color: #FFFFFF;
+    /* White links in navbar */
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #00FFFF;
+    /* Aqua on hover */
+}
+
+
+/* Hamburger Menu Styles */
+
+.hamburger {
+    display: none;
+    font-size: 1.5rem;
+    color: #FFFFFF;
+    /* White hamburger icon */
+    cursor: pointer;
+}
+
+.nav-active {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color: #000000;
+    /* Black background for dropdown */
+    width: 150px;
+    border-radius: 5px;
+    padding: 10px 0;
+}
+
+.nav-active li {
+    margin: 10px 0;
+    text-align: center;
+}
+
+.nav-active a {
+    color: #FFFFFF;
+    /* White links in dropdown */
+}
+
+
+/* Auth Buttons */
+
+.auth-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.auth-buttons a {
+    color: #000000;
+    /* Black text on buttons */
+    background-color: #00FFFF;
+    /* Aqua buttons */
+    text-decoration: none;
+    padding: 0.5rem 1.5rem;
+    /* Larger padding for easier tap on mobile */
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.auth-buttons a:hover {
+    background-color: #FFFFFF;
+    /* White on hover */
+    color: #000000;
+    /* Black text on hover */
+}
+
+
+/* Hero Section */
+
+.hero-section {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, #FFFFFF, #F0F0F0);
+    /* Subtle white gradient */
+}
+
+.hero-content {
+    background: rgba(0, 0, 0, 0.05);
+    /* Semi-transparent black overlay */
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+.hero-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #000000;
+    /* Black text */
+}
+
+.hero-section p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: #000000;
+    /* Black text */
+}
+
+.start-interview-btn {
+    background-color: #00FFFF;
+    /* Aqua button */
+    color: #000000;
+    /* Black text */
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    font-size: 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.start-interview-btn:hover {
+    background-color: #FFFFFF;
+    /* White on hover */
+    color: #000000;
+    /* Black text on hover */
+}
+
+
+/* About Section */
+
+.about-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem 2rem;
+    background: linear-gradient(135deg, #F0F0F0, #FFFFFF);
+    /* Light gradient */
+}
+
+.about-content {
+    display: flex;
+    max-width: 1200px;
+    width: 100%;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.text-column {
+    flex: 1;
+    padding-right: 2rem;
+}
+
+.text-column h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #000000;
+    /* Black text */
+}
+
+.text-column p {
+    margin-bottom: 1.5rem;
+    color: #000000;
+    /* Black text */
+    font-size: 1rem;
+}
+
+.image-column {
+    flex: 1;
+    text-align: center;
+}
+
+.image-column img {
+    max-width: 100%;
+    border-radius: 8px;
+}
+
+
+/* Footer Section */
+
+footer {
+    background-color: #FFFFFF;
+    /* White footer */
+    color: #000000;
+    /* Black text */
+    text-align: center;
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+
+/* Responsive Adjustments */
+
+
+/* Tablets and below */
+
+@media (max-width: 992px) {
+    .about-content {
+        flex-direction: column;
+        align-items: center;
+    }
+    .text-column {
+        padding-right: 0;
+    }
+    .hero-content {
+        padding: 1rem;
+    }
+    .auth-buttons a {
+        font-size: 0.9rem;
+        padding: 0.5rem 1.2rem;
+        /* Slightly smaller buttons for tablets */
+    }
+}
+
+
+/* Mobile Devices */
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        /* Hide original nav links */
+    }
+    .hamburger {
+        display: block;
+        /* Show hamburger on mobile */
+    }
+    .nav-active {
+        display: flex;
+    }
+    .about-content {
+        gap: 1rem;
+    }
+    .hero-section h2 {
+        font-size: 2rem;
+    }
+    .hero-section p {
+        font-size: 1rem;
+    }
+    .start-interview-btn {
+        font-size: 0.9rem;
+        padding: 0.6rem 1.2rem;
+    }
+    .auth-buttons {
+        justify-content: center;
+        /* Center buttons on mobile */
+        width: 100%;
+    }
+    .auth-buttons a {
+        font-size: 0.9rem;
+        /* Smaller font for buttons */
+        padding: 0.5rem 1.2rem;
+        /* Adjust padding for smaller screens */
+    }
+}
+
+
+/* Small Mobile Devices */
+
+@media (max-width: 480px) {
+    .hero-section h2 {
+        font-size: 1.8rem;
+    }
+    .hero-section p {
+        font-size: 0.9rem;
+    }
+    .start-interview-btn {
+        font-size: 0.8rem;
+        padding: 0.5rem 1rem;
+    }
+    .text-column h2 {
+        font-size: 1.6rem;
+    }
+    .text-column p {
+        font-size: 0.9rem;
+    }
+    .auth-buttons a {
+        font-size: 0.8rem;
+        /* Smaller font for buttons */
+        padding: 0.4rem 1rem;
+        /* Adjust padding for small mobile */
+    }
+}

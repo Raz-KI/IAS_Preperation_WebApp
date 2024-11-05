@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - IAS Virtual Interview App</title>
+    <link rel="stylesheet" href="/static/iashome.css">
+</head>
+
+<body class="body2">
+    <div class="login-container">
+        <div class="login-box">
+            <h2>Login</h2>
+            <!-- Make sure the form submits to the '/login' route and uses the POST method -->
+            <form action="{{ url_for('login') }}" method="POST">
+                <div class="input-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit" class="login-btn">Login</button>
+                {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        <div class="flash-messages">
+            {% for category, message in messages %}
+                <div class="flash-message {{ category }}">{{ message }}</div>
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endwith %}
+
+                <p class="signup-link">Not signed up yet? <a href="{{ url_for('signup') }}">Sign Up</a></p>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

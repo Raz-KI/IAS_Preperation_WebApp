@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IAS Virtual Interview App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='iashome.css') }}">
+</head>
+
+<body class="body1">
+    <!-- Navbar Section -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>IAS Virtual Interview</h1>
+            </div>
+            <div class="auth-buttons">
+                <a href="{{ url_for('login') }}" class="login-btn"> Login </a>
+                <a href="{{ url_for('signup') }}" class="signup-btn"> SignUp </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content Section -->
+    <main>
+        <section class="hero-section">
+            <h2>Welcome to IAS Virtual Interview App</h2>
+            <p>Let AI assess yo ur interview skills and help you prepare for success.</p>
+            <a href="{{ url_for('login') }}" class="start-interview-btn">Login To Start Interview</a>
+        </section>
+        <br>
+        <!-- About the App Section -->
+        <section class="about-section">
+            <div class="about-content">
+                <div class="text-column">
+                    <h2>About the App</h2>
+                    <p style="font-size: 20px;">
+                        The IAS Virtual Interview App is designed to help UPSC aspirants prepare effectively by simulating real interview experiences using AI technology. The app not only mimics the interview environment but also builds confidence by allowing users to practice
+                        answering questions in a realistic setting. After each session, candidates receive instant feedback and detailed performance reports that highlight their strengths and areas for improvement. By consistently practicing and reviewing
+                        feedback, aspirants can fine-tune their responses, improve communication skills, and boost their overall confidence.
+                    </p>
+
+
+                </div>
+                <div class="image-column">
+                    <img src="/static/UPSC image.jpg" alt="Interview Process Image">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 IAS Virtual Interview. All Rights Reserved.</p>
+    </footer>
+</body>
+
+</html>
