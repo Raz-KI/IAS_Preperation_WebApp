@@ -11,6 +11,9 @@ import os
 global loggedin
 loggedin=0
 
+global endframe
+endframe=0
+
 # Initialize Flask app
 app = Flask(__name__)
 app.secret_key = os.urandom(24)     # Secret key for session management
@@ -149,6 +152,7 @@ def get_feedback_from_ai(interview_data):
 # API route to start the interview with the first question: "Introduce yourself"
 @app.route('/api/start_interview', methods=['GET'])
 def start_interview():
+    endframe=0
     first_question = "Hello Candidate! Introduce yourself."
     interview_data.append({"question": first_question, "answer": None})  # Store first question
     return jsonify({'question': first_question})
@@ -199,6 +203,9 @@ def end_interview():
     # else:
     #     average_confidence = 0  # If no frames were analyzed, default to 0
     print(average_confidence)
+    global endframe
+    endframe=1
+    loggedin=0
     return render_template('results.html', 
                            overall_feedback=overall_feedback, 
                            interview_data=interview_data, 
@@ -231,6 +238,8 @@ def avgconf(face_confidence, emotion):
 # Route to analyze video frame# Route to analyze video frame
 @app.route('/api/analyze_frame', methods=['POST'])
 def analyze_frame():
+    if endframe==1:
+         return jsonify({'message': 'Over'})
     global frames
     global iterconf
     frames+=1
