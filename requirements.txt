@@ -9,3 +9,4 @@ deepface==0.0.93
 # logging
 Flask-SQLAlchemy==3.0.5
 Werkzeug==2.3.7
+tf-keras
